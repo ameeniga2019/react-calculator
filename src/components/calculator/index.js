@@ -3,14 +3,14 @@ import "./index.css";
 
 export default class Calculator extends Component {
   constructor(props) {
-    super(props);
-    this.setState = {
-      totalOperations: 0,
-      input1: '',
-      input2: '',
-      result: 0
+    super(props)
+    this.state = {
+      input1: 0,
+      input2: 0,
+      result : 0
     }
-}
+       }
+
   render() {
     return (
       <div className="layout-column align-items-center">
@@ -20,7 +20,7 @@ export default class Calculator extends Component {
           <section className="card-text">
             <div className="layout-row justify-content-around align-items-center mt-40">
               <input type="number" className="ml-3 mr-3" data-testid="app-input1" autoComplete="off" placeholder="Eg: 1"
-                    name="input1"/>
+                    name="input1"   onChange={evt => this.onChange}  />
               <label className="ml-2 mr-2 symbol text-center" data-testid="selected-operator"></label>
               <input type="number" data-testid="app-input2" autoComplete="off" className="ml-3 mr-3"
                     placeholder="Eg: 2"/>
@@ -32,8 +32,7 @@ export default class Calculator extends Component {
               <button className="operationFont" type="submit" data-testid="multiplyButton">*</button>
               <button className="operationFont" type="submit" data-testid="divideButton">/</button>
             </div>
-            <div data-testid="result">Result: {result}</div>
-            
+
             <div className="layout-row justify-content-between align-items-center mt-30">
               <button type="reset" data-testid="resetButton" className="outline danger">Reset</button>
               <div className="layout-row justify-content-center align-items-center result-container">
